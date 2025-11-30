@@ -1,0 +1,131 @@
+// database.js
+class Database {
+    constructor() {
+        this.dbName = 'alihamoud';
+        this.init();
+    }
+
+    init() {
+        // في بيئة حقيقية، سنستخدم SQLite
+        // هنا سنستخدم localStorage لمحاكاة قاعدة البيانات
+        if (!localStorage.getItem(this.dbName)) {
+            const initialData = {
+                users: [
+                    { id: 1, username: 'admin', password: 'admin123', role: 'admin' }
+                ],
+                services: [
+                    { id: 1, title: 'تفصيل وتركيب الألمنيوم', description: 'نقوم بتصميم وتنفيذ جميع أنواع الألمنيوم', image: 'aluminum.jpg', active: true },
+                    { id: 2, title: 'تفصيل وتركيب الزجاج', description: 'زجاج سيكوريت، دبل جلاس، واجهات زجاجية', image: 'glass.jpg', active: true },
+                    { id: 3, title: 'تفصيل وتركيب المرايا', description: 'مرايا للجدران، الحمامات، وغرف النوم', image: 'mirror.jpg', active: true }
+                ],
+                gallery: [
+                    { id: 1, title: 'مشروع فيلا الرياض', image: 'project1.jpg', category: 'ألمنيوم', active: true },
+                    { id: 2, title: 'واجهة محل تجاري', image: 'project2.jpg', category: 'زجاج', active: true },
+                    { id: 3, title: 'كبائن شاور', image: 'project3.jpg', category: 'زجاج', active: true }
+                ],
+                contacts: [],
+                settings: {
+                    siteName: 'علي حمود للألمنيوم والزجاج',
+                    phone: '+966510521202',
+                    email: 'info@alihamoud.com',
+                    address: 'الرياض، السعودية'
+                }
+            };
+            localStorage.setItem(this.dbName, JSON.stringify(initialData));
+        }
+    }
+
+    getData() {
+        return JSON.parse(localStorage.getItem(this.dbName) || '{}');
+    }
+
+    saveData(data) {
+        localStorage.setItem(this.dbName, JSON.stringify(data));
+    }
+
+    // خدمات
+    getServices() {
+        return this.getData().services || [];
+    }
+
+    addService(service) {
+        const data = this.getData();
+        service.id = Date.now();
+        data.services.push(service);
+        this.saveData(data);
+        return service;
+    }
+
+    updateService(id, updatedService) {
+        const data = this.getData();
+        const index = data.services.findIndex(s => s.id == id);
+        if (index !== -1) {
+            data.services[index] = { ...data.services[index], ...updatedService };
+            this.saveData(data);
+            return true;
+        }
+        return false;
+    }
+
+    deleteService(id) {
+        const data = this.getData();
+        data.services = data.services.filter(s => s.id != id);
+        this.saveData(data);
+        return true;
+    }
+
+    // معرض الصور
+    getGallery() {
+        return this.getData().gallery || [];
+    }
+
+    addGalleryItem(item) {
+        const data = this.getData();
+        item.id = Date.now();
+        data.gallery.push(item);
+        this.saveData(data);
+        return item;
+    }
+
+    deleteGalleryItem(id) {
+        const data = this.getData();
+        data.gallery = data.gallery.filter(g => g.id != id);
+        this.saveData(data);
+        return true;
+    }
+
+    // جهات الاتصال
+    getContacts() {
+        return this.getData().contacts || [];
+    }
+
+    addContact(contact) {
+        const data = this.getData();
+        contact.id = Date.now();
+        contact.date = new Date().toISOString();
+        data.contacts.push(contact);
+        this.saveData(data);
+        return contact;
+    }
+
+    // المستخدمين
+    getUser(username, password) {
+        const data = this.getData();
+        return data.users.find(u => u.username === username && u.password === password);
+    }
+
+    // الإعدادات
+    getSettings() {
+        return this.getData().settings || {};
+    }
+
+    updateSettings(newSettings) {
+        const data = this.getData();
+        data.settings = { ...data.settings, ...newSettings };
+        this.saveData(data);
+        return data.settings;
+    }
+}
+
+// إنشاء نسخة عامة من قاعدة البيانات
+const db = new Database();

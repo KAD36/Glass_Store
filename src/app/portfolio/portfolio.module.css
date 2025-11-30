@@ -1,0 +1,21 @@
+.header {
+    padding: 8rem 0 4rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    padding-bottom: 4rem;
+}
+
+.empty {
+    text-align: center;
+    padding: 4rem;
+    color: var(--text-gray);
+    background: var(--glass-bg);
+    border-radius: 16px;
+    border: 1px solid var(--glass-border);
+}

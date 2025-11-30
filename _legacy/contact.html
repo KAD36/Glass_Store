@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اتصل بنا - علي حمود للألمنيوم والزجاج</title>
+    <meta name="description" content="اتصل بمؤسسة علي حمود للألمنيوم والزجاج للحصول على استشارة مجانية وعروض أسعار لجميع خدمات الألمنيوم والزجاج والمرايا.">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .contact-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/contact-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .contact-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .contact-detail-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .contact-detail-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .contact-detail-card i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .contact-detail-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .map-container {
+            margin-top: 50px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+        }
+        
+        .service-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            background: var(--white);
+        }
+        
+        .form-success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+        
+        .business-hours {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+        
+        .business-hours h4 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+        
+        .hour-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .hour-item:last-child {
+            border-bottom: none;
+        }
+        
+        .social-contact {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-contact a {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-contact a:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="tel:+966510521202" class="contact-phone"><i class="fas fa-phone"></i> +966510521202</a>
+                    <a href="mailto:info@alihamoud.com" class="contact-email"><i class="fas fa-envelope"></i> info@alihamoud.com</a>
+                </div>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="main-header">
+            <div class="container">
+                <div class="logo">
+                    <img src="images/logo.png" alt="علي حمود للألمنيوم والزجاج" onerror="this.src='https://via.placeholder.com/60x60?text=شعار'">
+                    <div class="logo-text">
+                        <h1 class="site-name">علي حمود للألمنيوم والزجاج</h1>
+                        <p>خبرة وجودة منذ أكثر من 20 عاماً</p>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <button class="close-menu">
+                        <i class="fas fa-times"></i>
+                    </button>
+                    <ul>
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="gallery.html">معرض الأعمال</a></li>
+                        <li><a href="contact.html" class="active">اتصل بنا</a></li>
+                        <li><a href="login.html">لوحة التحكم</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="contact-hero">
+        <div class="container">
+            <h2>اتصل بنا</h2>
+            <p>نحن هنا لمساعدتك في جميع استفساراتك ومشاريعك</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>تواصل معنا</h2>
+                <p>اختر طريقة التواصل التي تناسبك</p>
+            </div>
+
+            <!-- Contact Details -->
+            <div class="contact-details-grid">
+                <div class="contact-detail-card">
+                    <i class="fas fa-phone-alt"></i>
+                    <h3>اتصل بنا</h3>
+                    <p>نحن متاحون للرد على استفساراتك</p>
+                    <a href="tel:+966510521202" class="btn" style="margin-top: 15px;">
+                        <i class="fas fa-phone"></i> اتصل الآن
+                    </a>
+                </div>
+                
+                <div class="contact-detail-card">
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>واتساب</h3>
+                    <p>راسلنا على الواتساب للرد السريع</p>
+                    <a href="https://wa.me/966510521202" class="btn" style="margin-top: 15px;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> راسلنا على واتساب
+                    </a>
+                </div>
+                
+                <div class="contact-detail-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>أرسل لنا بريداً إلكترونياً</p>
+                    <a href="mailto:info@alihamoud.com" class="btn" style="margin-top: 15px;">
+                        <i class="fas fa-envelope"></i> أرسل بريداً
+                    </a>
+                </div>
+                
+                <div class="contact-detail-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>زيارة المعرض</h3>
+                    <p>زورنا في معرضنا بالرياض</p>
+                    <a href="#location" class="btn" style="margin-top: 15px;">
+                        <i class="fas fa-directions"></i> احصل على الاتجاهات
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>معلومات التواصل</h3>
+                    
+                    <div id="contact-info-container">
+                        <!-- سيتم تحميل معلومات الاتصال ديناميكياً -->
+                    </div>
+
+                    <!-- ساعات العمل -->
+                    <div class="business-hours">
+                        <h4><i class="fas fa-clock"></i> ساعات العمل</h4>
+                        <div class="hour-item">
+                            <span>الأحد - الخميس</span>
+                            <span>8:00 ص - 10:00 م</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>الجمعة</span>
+                            <span>4:00 م - 10:00 م</span>
+                        </div>
+                        <div class="hour-item">
+                            <span>السبت</span>
+                            <span>9:00 ص - 10:00 م</span>
+                        </div>
+                    </div>
+
+                    <!-- وسائل التواصل الاجتماعي -->
+                    <div class="social-contact">
+                        <a href="https://wa.me/966510521202" title="واتساب">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" title="تويتر">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" title="انستقرام">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" title="فيسبوك">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <div class="form-success" id="formSuccess">
+                        <i class="fas fa-check-circle"></i>
+                        شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.
+                    </div>
+
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">الاسم الكامل *</label>
+                            <input type="text" id="name" class="form-control" required placeholder="أدخل اسمك الكامل">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">رقم الهاتف *</label>
+                            <input type="tel" id="phone" class="form-control" required placeholder="مثال: 0512345678">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">البريد الإلكتروني</label>
+                            <input type="email" id="email" class="form-control" placeholder="example@email.com">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">نوع الخدمة المطلوبة</label>
+                            <select id="service" class="service-select">
+                                <option value="">اختر الخدمة المطلوبة</option>
+                                <option value="ألمنيوم">تفصيل وتركيب الألمنيوم</option>
+                                <option value="زجاج">تفصيل وتركيب الزجاج</option>
+                                <option value="مرايا">تفصيل وتركيب المرايا</option>
+                                <option value="صيانة">صيانة واستبدال</option>
+                                <option value="استشارة">استشارة مجانية</option>
+                                <option value="أخرى">خدمة أخرى</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">الرسالة *</label>
+                            <textarea id="message" class="form-control" required placeholder="أخبرنا عن متطلباتك ومشروعك..." rows="5"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Map -->
+    <section id="location" class="section" style="background: var(--light-bg); padding: 60px 0;">
+        <div class="container">
+            <div class="section-title">
+                <h2>موقعنا</h2>
+                <p>زورنا في معرضنا بالرياض</p>
+            </div>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3622.396356909987!2d46.73825357555902!3d24.774320553911!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e2f01192da47d6d%3A0x5abf625fab0b7e09!2sRiyadh%2C%20Saudi%20Arabia!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="https://maps.google.com/?q=الرياض، السعودية" class="btn" target="_blank">
+                    <i class="fas fa-map-marker-alt"></i> افتح في خرائط جوجل
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact -->
+    <section class="section" style="background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); color: var(--white);">
+        <div class="container">
+            <div class="section-title">
+                <h2>اتصل بنا الآن</h2>
+                <p>نحن جاهزون لخدمتك على مدار الساعة</p>
+            </div>
+            <div style="text-align: center;">
+                <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-bottom: 30px;">
+                    <div style="text-align: center;">
+                        <i class="fas fa-phone" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h3>اتصال هاتفي</h3>
+                        <p>+966510521202</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fab fa-whatsapp" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h3>واتساب</h3>
+                        <p>+966510521202</p>
+                    </div>
+                    <div style="text-align: center;">
+                        <i class="fas fa-envelope" style="font-size: 2rem; margin-bottom: 10px;"></i>
+                        <h3>بريد إلكتروني</h3>
+                        <p>info@alihamoud.com</p>
+                    </div>
+                </div>
+                <div>
+                    <a href="tel:+966510521202" class="btn" style="background: var(--white); color: var(--primary-color); margin: 5px;">
+                        <i class="fas fa-phone"></i> اتصل الآن
+                    </a>
+                    <a href="https://wa.me/966510521202" class="btn" style="background: var(--white); color: var(--primary-color); margin: 5px;" target="_blank">
+                        <i class="fab fa-whatsapp"></i> راسلنا على واتساب
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3 class="site-name">علي حمود للألمنيوم والزجاج</h3>
+                    <p>مؤسسة متخصصة في تفصيل وتركيب وصيانة جميع أنواع الألمنيوم والزجاج والمرايا في السعودية منذ أكثر من 20 عاماً.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>روابط سريعة</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">الرئيسية</a></li>
+                        <li><a href="about.html">من نحن</a></li>
+                        <li><a href="services.html">خدماتنا</a></li>
+                        <li><a href="gallery.html">معرض الأعمال</a></li>
+                        <li><a href="contact.html">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>خدماتنا</h3>
+                    <ul class="footer-links">
+                        <li><a href="services.html">تفصيل وتركيب الألمنيوم</a></li>
+                        <li><a href="services.html">تفصيل وتركيب الزجاج</a></li>
+                        <li><a href="services.html">تفصيل وتركيب المرايا</a></li>
+                        <li><a href="services.html">صيانة واستبدال</a></li>
+                        <li><a href="services.html">استشارات مجانية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>اتصل بنا</h3>
+                    <div class="contact-details">
+                        <div class="contact-detail">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span class="contact-address">الرياض، السعودية</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-phone"></i>
+                            <span class="contact-phone">+966510521202</span>
+                        </div>
+                        <div class="contact-detail">
+                            <i class="fas fa-envelope"></i>
+                            <span class="contact-email">info@alihamoud.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>جميع الحقوق محفوظة &copy; <span class="copyright-year">2024</span> <span class="site-name">علي حمود للألمنيوم والزجاج</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/database.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // وظائف إضافية لصفحة الاتصال
+        document.addEventListener('DOMContentLoaded', function() {
+            // معالجة إرسال النموذج
+            const contactForm = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        phone: document.getElementById('phone').value,
+                        email: document.getElementById('email').value,
+                        service: document.getElementById('service').value,
+                        message: document.getElementById('message').value
+                    };
+                    
+                    // التحقق من البيانات
+                    if (!formData.name || !formData.phone || !formData.message) {
+                        showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
+                        return;
+                    }
+                    
+                    if (!DatabaseUtils.validateSaudiPhone(formData.phone)) {
+                        showNotification('يرجى إدخال رقم هاتف سعودي صحيح', 'error');
+                        return;
+                    }
+                    
+                    if (formData.email && !DatabaseUtils.validateEmail(formData.email)) {
+                        showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
+                        return;
+                    }
+                    
+                    // حفظ في قاعدة البيانات
+                    db.addContact(formData);
+                    
+                    // إظهار رسالة النجاح
+                    formSuccess.style.display = 'block';
+                    contactForm.reset();
+                    
+                    // إخفاء رسالة النجاح بعد 5 ثواني
+                    setTimeout(() => {
+                        formSuccess.style.display = 'none';
+                    }, 5000);
+                    
+                    // إظهار إشعار
+                    showNotification('شكراً لتواصلك معنا! سنرد عليك في أقرب وقت ممكن.', 'success');
+                });
+            }
+            
+            // تحديث سنة حقوق النشر
+            const yearElements = document.querySelectorAll('.copyright-year');
+            const currentYear = new Date().getFullYear();
+            yearElements.forEach(el => {
+                el.textContent = currentYear;
+            });
+        });
+        
+        // وظيفة إظهار الإشعارات
+        function showNotification(message, type = 'info') {
+            // كود الإشعارات من main.js
+            const notification = document.createElement('div');
+            notification.className = `notification notification-${type}`;
+            notification.innerHTML = `
+                <div class="notification-content">
+                    <i class="fas fa-${type === 'success' ? 'check' : type === 'error' ? 'exclamation' : 'info'}-circle"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.classList.add('show'), 100);
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+                setTimeout(() => notification.remove(), 300);
+            }, 5000);
+        }
+    </script>
+</body>
+</html>

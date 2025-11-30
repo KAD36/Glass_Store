@@ -1,0 +1,20 @@
+'use client';
+
+import Link from 'next/link';
+import { MessageCircle } from 'lucide-react';
+import styles from './WhatsAppButton.module.css';
+
+export default function WhatsAppButton() {
+    return (
+        <Link
+            href="https://wa.me/966534971867"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.button}
+            aria-label="Contact via WhatsApp"
+        >
+            <MessageCircle size={32} fill="white" strokeWidth={1.5} />
+            <span className={styles.tooltip}>تواصل معنا</span>
+        </Link>
+    );
+}
