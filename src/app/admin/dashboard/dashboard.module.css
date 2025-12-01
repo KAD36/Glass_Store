@@ -1,12 +1,12 @@
 .header {
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-8);
 }
 
 .title {
     font-size: 2rem;
     font-weight: 800;
     color: #1e293b;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
 }
 
 .subtitle {
@@ -17,18 +17,18 @@
 .statsGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-    margin-bottom: 4rem;
+    gap: var(--space-6);
+    margin-bottom: var(--space-12);
 }
 
 .statCard {
     background: #fff;
-    padding: 2rem;
-    border-radius: 16px;
+    padding: var(--space-6);
+    border-radius: var(--radius-md);
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-6);
     transition: transform 0.2s;
 }
 
@@ -39,7 +39,7 @@
 .statIcon {
     width: 64px;
     height: 64px;
-    border-radius: 16px;
+    border-radius: var(--radius-md);
     background: #eff6ff;
     color: #3b82f6;
     display: flex;
@@ -50,7 +50,7 @@
 .statInfo h3 {
     font-size: 1rem;
     color: #64748b;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
     font-weight: 600;
 }
 
@@ -59,18 +59,19 @@
     font-weight: 800;
     color: #0f172a;
     line-height: 1;
+    margin: 0;
 }
 
 .actions {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1.5rem;
+    gap: var(--space-6);
 }
 
 .actionCard {
     background: #fff;
-    padding: 2rem;
-    border-radius: 16px;
+    padding: var(--space-8);
+    border-radius: var(--radius-md);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: all 0.3s ease;
@@ -78,7 +79,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: var(--space-4);
     color: #1e293b;
     position: relative;
     font-weight: 600;

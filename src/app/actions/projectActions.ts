@@ -1,8 +1,21 @@
 'use server';
 
-import { client } from '@/lib/sanity';
+import { writeClient } from '@/lib/sanity.server';
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
+
+function generateSlug(title: string): string {
+    const baseSlug = title
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w\u0600-\u06FF\-]+/g, '')
+        .replace(/\-\-+/g, '-')
+        .replace(/^-+/, '')
+        .replace(/-+$/, '');
+
+    // Append a short random string to ensure uniqueness
+    return `${baseSlug}-${Date.now().toString().slice(-4)}`;
+}
 
 export async function createProject(formData: FormData) {
     const title = formData.get('title') as string;
@@ -33,19 +46,24 @@ export async function createProject(formData: FormData) {
     }
 
     try {
-        await client.create({
+        const slug = generateSlug(title);
+
+        await writeClient.create({
             _type: 'project',
             title,
+            slug: { _type: 'slug', current: slug },
             description,
             images,
             publishedAt: new Date().toISOString(),
         });
 
         revalidatePath('/admin/projects');
+        revalidatePath('/admin/dashboard');
+        revalidatePath('/portfolio');
         revalidatePath('/');
-    } catch (error) {
+    } catch (error: any) {
         console.error('Failed to create project:', error);
-        throw new Error('Failed to create project');
+        throw new Error(`Failed to create project: ${error.message || 'Unknown error'}`);
     }
 
     redirect('/admin/projects');
@@ -66,6 +84,10 @@ export async function updateProject(id: string, formData: FormData) {
             description,
         };
 
+        // Always ensure slug exists or update it (simplest fix for broken projects)
+        // In a real app we might check if it exists first, but here we want to fix visibility.
+        doc.slug = { _type: 'slug', current: generateSlug(title) };
+
         if (imageAssetIdsJson) {
             try {
                 const assetIds = JSON.parse(imageAssetIdsJson);
@@ -83,9 +105,11 @@ export async function updateProject(id: string, formData: FormData) {
             }
         }
 
-        await client.patch(id).set(doc).commit();
+        await writeClient.patch(id).set(doc).commit();
 
         revalidatePath('/admin/projects');
+        revalidatePath('/admin/dashboard');
+        revalidatePath('/portfolio');
         revalidatePath('/');
     } catch (error) {
         console.error('Failed to update project:', error);
@@ -101,8 +125,10 @@ export async function deleteProject(id: string) {
     }
 
     try {
-        await client.delete(id);
+        await writeClient.delete(id);
         revalidatePath('/admin/projects');
+        revalidatePath('/admin/dashboard');
+        revalidatePath('/portfolio');
         revalidatePath('/');
     } catch (error) {
         console.error('Failed to delete project:', error);

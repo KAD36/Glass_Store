@@ -31,7 +31,7 @@ export default async function PortfolioPage() {
             <main className="container mx-auto px-4">
                 <div className={styles.grid}>
                     {projects.length > 0 ? (
-                        projects.map((project: any) => (
+                        projects.filter((p: any) => p.slug?.current).map((project: any) => (
                             <ProjectCard key={project.slug.current} project={project} />
                         ))
                     ) : (

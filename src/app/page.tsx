@@ -47,10 +47,11 @@ export default async function Home() {
                 <div className={styles.heroContent}>
                     <h1 className={styles.title}>
                         الفخامة تتجسد في <br />
-                        <span style={{ color: 'var(--accent-gold)' }}>أدق التفاصيل</span>
+                        <span className="text-gold">أدق التفاصيل</span>
                     </h1>
                     <p className={styles.subtitle}>
                         نحول مساحتك إلى تحفة فنية بلمسات زجاجية عصرية.
+                        <br />
                         خبراء في تركيب الزجاج السكريت، المرايا، والواجهات الفاخرة.
                     </p>
                     <div className={styles.ctaGroup}>
@@ -123,9 +124,9 @@ export default async function Home() {
             {/* Featured Projects */}
             <section className="py-20 bg-slate-900/50">
                 <div className="container mx-auto px-4">
-                    <div className="flex justify-between items-end mb-12">
+                    <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
                         <div>
-                            <h2 className={styles.sectionTitle} style={{ textAlign: 'right' }}>أحدث إبداعاتنا</h2>
+                            <h2 className={styles.sectionTitle} style={{ textAlign: 'right', marginBottom: '0.5rem' }}>أحدث إبداعاتنا</h2>
                             <p className="text-gray-400 mt-2">جولة في معرض أعمالنا المختارة</p>
                         </div>
                         <Link href="/portfolio" className="hidden md:flex items-center gap-2 text-gold hover:text-white transition-colors">
@@ -135,7 +136,7 @@ export default async function Home() {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {projects.length > 0 ? (
-                            projects.map((project: any) => (
+                            projects.filter((p: any) => p.slug?.current).map((project: any) => (
                                 <ProjectCard key={project.slug.current} project={project} />
                             ))
                         ) : (

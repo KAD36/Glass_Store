@@ -10,11 +10,13 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     const router = useRouter();
 
     const handleLogout = async () => {
-        // In a real app, call an API to clear cookies
-        // For now, we just redirect since the middleware checks the cookie
-        // We need to actually clear the cookie on the client or via API
-        document.cookie = 'token=; Max-Age=0; path=/';
-        router.push('/admin/login');
+        try {
+            await fetch('/api/auth/logout', { method: 'POST' });
+            router.push('/admin/login');
+            router.refresh(); // Refresh to ensure middleware catches the missing cookie
+        } catch (error) {
+            console.error('Logout failed:', error);
+        }
     };
 
     // Don't show layout on login page

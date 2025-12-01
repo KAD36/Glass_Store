@@ -3,6 +3,9 @@ import { client } from '@/lib/sanity';
 import { FolderPlus, Globe, LayoutTemplate, ArrowUpRight } from 'lucide-react';
 import styles from './dashboard.module.css';
 
+export const dynamic = 'force-dynamic';
+
+
 async function getStats() {
     const projectsCount = await client.fetch(`count(*[_type == "project"])`);
     return { projectsCount };

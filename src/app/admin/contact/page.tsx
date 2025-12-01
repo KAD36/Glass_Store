@@ -1,8 +1,7 @@
 'use client';
 
 import { useState, useEffect, useTransition } from 'react';
-import { client } from '@/lib/sanity';
-import { updateContactInfo } from '@/app/actions/settingsActions';
+import { updateContactInfo, getContactInfo } from '@/app/actions/settingsActions';
 import styles from '@/app/admin/projects/project-form.module.css'; // Reuse styles
 
 export default function ContactSettingsPage() {
@@ -13,7 +12,7 @@ export default function ContactSettingsPage() {
     const [isPending, startTransition] = useTransition();
 
     useEffect(() => {
-        client.fetch(`*[_type == "contact"][0]`).then((data) => {
+        getContactInfo().then((data: any) => {
             if (data) {
                 setEmail(data.email || '');
                 setPhone(data.phone || '');

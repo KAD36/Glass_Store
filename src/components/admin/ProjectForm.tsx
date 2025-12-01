@@ -78,7 +78,10 @@ export default function ProjectForm({ initialData, isEdit = false }: ProjectForm
                     body: formData,
                 });
 
-                if (!uploadRes.ok) throw new Error('Image upload failed');
+                if (!uploadRes.ok) {
+                    const errorData = await uploadRes.json();
+                    throw new Error(errorData.details || errorData.error || 'Image upload failed');
+                }
 
                 const { asset } = await uploadRes.json();
                 imageAssetIds.push(asset._id);
@@ -105,7 +108,7 @@ export default function ProjectForm({ initialData, isEdit = false }: ProjectForm
 
         } catch (error) {
             console.error(error);
-            alert('Error uploading images');
+            alert(`Error uploading images: ${error instanceof Error ? error.message : 'Unknown error'}`);
         } finally {
             setUploading(false);
         }

@@ -21,6 +21,10 @@
   align-items: center;
   gap: 0.5rem;
   transition: background 0.2s;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  text-decoration: none;
 }
 
 .addButton:hover {
@@ -30,7 +34,7 @@
 .tableContainer {
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
 
@@ -71,7 +75,8 @@
   gap: 0.5rem;
 }
 
-.editBtn, .deleteBtn {
+.editBtn,
+.deleteBtn {
   padding: 0.5rem;
   border-radius: 6px;
   border: none;

@@ -93,3 +93,12 @@ export async function updateContactInfo(formData: FormData) {
         throw new Error('Failed to update contact info');
     }
 }
+
+export async function getContactInfo() {
+    try {
+        return await client.fetch(`*[_type == "contact"][0]`);
+    } catch (error) {
+        console.error('Failed to fetch contact info:', error);
+        return null;
+    }
+}
