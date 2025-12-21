@@ -35,7 +35,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         <div className={styles.container}>
             <aside className={styles.sidebar}>
                 <div className={styles.sidebarHeader}>
-                    <h1 className={styles.logo}>مملكة <span>الزجاج</span></h1>
+                    <h1 className={styles.logo}>مؤسسه سطور الماسه <span>للمقاولات العامة</span></h1>
                 </div>
 
                 <nav className={styles.nav}>

@@ -23,8 +23,9 @@
   transition: background 0.2s;
   cursor: pointer;
   position: relative;
-  z-index: 10;
+  z-index: 100;
   text-decoration: none;
+  pointer-events: auto;
 }
 
 .addButton:hover {

@@ -18,7 +18,7 @@ export default async function DashboardPage() {
         <div>
             <header className={styles.header}>
                 <h1 className={styles.title}>لوحة التحكم</h1>
-                <p className={styles.subtitle}>مرحباً بك في لوحة إدارة مملكة الزجاج</p>
+                <p className={styles.subtitle}>مرحباً بك في لوحة إدارة مؤسسه سطور الماسه للمقاولات العامة</p>
             </header>
 
             <div className={styles.statsGrid}>

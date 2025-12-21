@@ -5,13 +5,13 @@ import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export const metadata: Metadata = {
-    title: 'مملكة الزجاج | Mamlakat Al-Zujaj',
+    title: 'مؤسسه سطور الماسه للمقاولات العامة',
     description: 'رواد تركيب الزجاج السكريت، الواجهات، والمرايا في المملكة العربية السعودية. تصاميم عصرية وتنفيذ احترافي.',
     openGraph: {
-        title: 'مملكة الزجاج | Mamlakat Al-Zujaj',
+        title: 'مؤسسه سطور الماسه للمقاولات العامة',
         description: 'رواد تركيب الزجاج السكريت، الواجهات، والمرايا في المملكة العربية السعودية.',
         url: 'https://mamlakat-alzujaj.com',
-        siteName: 'مملكة الزجاج',
+        siteName: 'مؤسسه سطور الماسه للمقاولات العامة',
         locale: 'ar_SA',
         type: 'website',
     },

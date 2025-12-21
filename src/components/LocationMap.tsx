@@ -9,13 +9,13 @@ export default function LocationMap() {
                 allowFullScreen
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="موقع مملكة الزجاج"
+                title="موقع مؤسسه سطور الماسه للمقاولات العامة"
             />
             <div className={styles.overlay}>
                 <h3>موقع المعرض</h3>
                 <p>تفضل بزيارتنا للاطلاع على أحدث التصاميم والعينات.</p>
                 <a
-                    href="https://maps.app.goo.gl/XrAb9sUum19JfgtBA"
+                    href="https://maps.app.goo.gl/4PRDcvLDx1qjveNL8"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={styles.link}

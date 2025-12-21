@@ -1,10 +1,18 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { MessageCircle } from 'lucide-react';
 import styles from './WhatsAppButton.module.css';
 
 export default function WhatsAppButton() {
+    const pathname = usePathname();
+
+    // Don't show on admin pages
+    if (pathname?.startsWith('/admin')) {
+        return null;
+    }
+
     return (
         <Link
             href="https://wa.me/966534971867"

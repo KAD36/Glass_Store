@@ -10,7 +10,7 @@ export default function AboutPage() {
                 <div className={styles.heroContent}>
                     <h1 className={styles.title}>من نحن</h1>
                     <p className={styles.subtitle}>
-                        مملكة الزجاج.. حيث تلتقي الخبرة الهندسية مع الفن المعماري لتقديم حلول زجاجية استثنائية.
+                        مؤسسة سطور الماسة.. حيث تلتقي الخبرة الهندسية مع الفن المعماري لتقديم حلول زجاجية استثنائية.
                     </p>
                 </div>
             </section>
@@ -44,7 +44,7 @@ export default function AboutPage() {
                 <div className="container mx-auto px-4 text-center">
                     <h2 className="text-3xl font-bold mb-4 text-gold">فريقنا القيادي</h2>
                     <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-                        يقود "مملكة الزجاج" نخبة من الكفاءات الهندسية لضمان أعلى مستويات الاحترافية.
+                        يقود "مؤسسة سطور الماسة" نخبة من الكفاءات الهندسية لضمان أعلى مستويات الاحترافية.
                     </p>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">

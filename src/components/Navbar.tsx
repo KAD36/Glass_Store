@@ -22,7 +22,7 @@ export default function Navbar() {
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
                     <Gem className="w-8 h-8 text-yellow-500" />
-                    <span>مملكة <span className={styles.logoSpan}>الزجاج</span></span>
+                    <span>مؤسسه سطور الماسه <span className={styles.logoSpan}>للمقاولات العامة</span></span>
                 </Link>
 
                 <div className={styles.desktopMenu}>
@@ -32,11 +32,7 @@ export default function Navbar() {
                     <Link href="/contact" className={styles.link}>تواصل معنا</Link>
                 </div>
 
-                <div className="hidden md:block">
-                    <Link href="/contact" className={styles.ctaButton}>
-                        اطلب عرض سعر
-                    </Link>
-                </div>
+
 
                 <button
                     className={styles.mobileToggle}

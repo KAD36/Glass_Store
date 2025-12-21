@@ -16,7 +16,7 @@ export async function POST(request: Request) {
         const mailOptions = {
             from: process.env.EMAIL_USER,
             to: email, // Send to the client
-            subject: `تم استلام طلبك - مملكة الزجاج`,
+            subject: `تم استلام طلبك - مؤسسة سطور الماسة`,
             text: `
                 مرحباً ${name}،
                 
@@ -28,7 +28,7 @@ export async function POST(request: Request) {
             html: `
                 <div dir="rtl" style="text-align: right; font-family: sans-serif;">
                     <h3>مرحباً ${name}،</h3>
-                    <p>شكراً لتواصلك مع <strong>مملكة الزجاج</strong>.</p>
+                    <p>شكراً لتواصلك مع <strong>مؤسسة سطور الماسة</strong>.</p>
                     <p>لقد استلمنا طلبك وسيقوم فريقنا بمراجعته والرد عليك قريباً.</p>
                     <hr />
                     <p><strong>تفاصيل رسالتك:</strong></p>
