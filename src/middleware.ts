@@ -5,7 +5,7 @@ import { verifyToken } from './lib/auth';
 export async function middleware(request: NextRequest) {
     const path = request.nextUrl.pathname;
 
-    if (path.startsWith('/admin')) {
+    if (path.startsWith('/admin') || path.startsWith('/studio')) {
         const token = request.cookies.get('token')?.value;
         const verifiedToken = token && (await verifyToken(token));
 
@@ -25,5 +25,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: '/admin/:path*',
+    matcher: ['/admin/:path*', '/studio/:path*'],
 };

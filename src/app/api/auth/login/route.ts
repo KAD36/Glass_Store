@@ -7,14 +7,14 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { username, password } = body;
 
-        const validUsername = 'ali.Hamood@2025!Z#37';
-        // Hardcoded hash for !@AliHamood@2025#z6G$ to ensure it works immediately
-        const passwordHash = '$2b$10$gaHG4ouibm3CGFpDzgDJXufWpYZ3lBtZdSAitweTDsTmbgpy.SWs.'; 
+        const validUsername = process.env.ADMIN_USERNAME;
+        const passwordHash = process.env.ADMIN_PASSWORD_HASH;
 
-        console.log('Login attempt for:', username);
-        
+        if (!validUsername || !passwordHash) {
+            return NextResponse.json({ success: false, message: 'Server configuration error' }, { status: 500 });
+        }
+
         const isPasswordValid = await bcrypt.compare(password, passwordHash);
-        console.log('Password valid:', isPasswordValid);
 
         if (username === validUsername && isPasswordValid) {
             const token = await signToken({ username });
@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ success: false, message: 'Invalid credentials' }, { status: 401 });
     } catch (error) {
-        console.error('Login error:', error);
+        console.error('Login error');
         return NextResponse.json({ success: false, message: 'Internal server error' }, { status: 500 });
     }
 }

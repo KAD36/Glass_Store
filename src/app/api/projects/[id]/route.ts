@@ -33,7 +33,7 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error('Error updating project:', error);
+        console.error('Error updating project');
         return NextResponse.json({ error: 'Failed to update project' }, { status: 500 });
     }
 }

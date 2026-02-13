@@ -2,6 +2,19 @@
 
 import { client } from '@/lib/sanity';
 import { revalidatePath } from 'next/cache';
+import { cookies } from 'next/headers';
+import { verifyToken } from '@/lib/auth';
+
+// Authentication guard for server actions
+async function requireAuth() {
+    const cookieStore = await cookies();
+    const token = cookieStore.get('token')?.value;
+    const payload = await verifyToken(token || '');
+    if (!payload) {
+        throw new Error('Unauthorized');
+    }
+    return payload;
+}
 
 // Helper to get or create a singleton document
 async function getOrCreateSingleton(type: string) {
@@ -15,6 +28,7 @@ async function getOrCreateSingleton(type: string) {
 }
 
 export async function updateAboutPage(formData: FormData) {
+    await requireAuth();
     const title = formData.get('title') as string;
     const subtitle = formData.get('subtitle') as string;
     const vision = formData.get('vision') as string;
@@ -65,6 +79,7 @@ export async function updateAboutPage(formData: FormData) {
 }
 
 export async function updateContactInfo(formData: FormData) {
+    await requireAuth();
     const email = formData.get('email') as string;
     const phone = formData.get('phone') as string;
     const address = formData.get('address') as string;

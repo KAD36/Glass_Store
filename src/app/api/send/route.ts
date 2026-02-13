@@ -1,9 +1,60 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
+// Simple in-memory rate limiter
+const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
+const RATE_LIMIT = 3; // max requests
+const RATE_WINDOW = 60 * 60 * 1000; // per hour
+
+function isRateLimited(ip: string): boolean {
+    const now = Date.now();
+    const entry = rateLimitMap.get(ip);
+
+    if (!entry || now > entry.resetTime) {
+        rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
+        return false;
+    }
+
+    entry.count++;
+    return entry.count > RATE_LIMIT;
+}
+
+function escapeHtml(str: string): string {
+    return str
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+}
+
 export async function POST(request: Request) {
     try {
+        // Rate limiting
+        const forwarded = request.headers.get('x-forwarded-for');
+        const ip = forwarded?.split(',')[0]?.trim() || 'unknown';
+
+        if (isRateLimited(ip)) {
+            return NextResponse.json({ error: 'Too many requests. Please try again later.' }, { status: 429 });
+        }
+
         const { name, email, message } = await request.json();
+
+        // Input validation
+        if (!name || !email || !message) {
+            return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+        }
+
+        // Basic email format validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
+        }
+
+        // Length limits
+        if (name.length > 100 || email.length > 254 || message.length > 2000) {
+            return NextResponse.json({ error: 'Input too long' }, { status: 400 });
+        }
 
         const transporter = nodemailer.createTransport({
             service: 'gmail',
@@ -13,26 +64,31 @@ export async function POST(request: Request) {
             },
         });
 
+        // Sanitize inputs for HTML
+        const safeName = escapeHtml(name);
+        const safeMessage = escapeHtml(message);
+        const safeEmail = escapeHtml(email);
+
         const mailOptions = {
             from: process.env.EMAIL_USER,
-            to: email, // Send to the client
-            subject: `تم استلام طلبك - مؤسسة سطور الماسة`,
+            to: process.env.CONTACT_EMAIL, // Send to admin, NOT to user-supplied email
+            replyTo: email,
+            subject: `رسالة جديدة من ${safeName} - موقع مؤسسة سطور الماسة`,
             text: `
-                مرحباً ${name}،
+                اسم المرسل: ${name}
+                البريد: ${email}
                 
-                شكراً لتواصلك معنا. لقد استلمنا رسالتك وسنعود إليك في أقرب وقت ممكن.
-                
-                تفاصيل رسالتك:
+                الرسالة:
                 ${message}
             `,
             html: `
                 <div dir="rtl" style="text-align: right; font-family: sans-serif;">
-                    <h3>مرحباً ${name}،</h3>
-                    <p>شكراً لتواصلك مع <strong>مؤسسة سطور الماسة</strong>.</p>
-                    <p>لقد استلمنا طلبك وسيقوم فريقنا بمراجعته والرد عليك قريباً.</p>
+                    <h3>رسالة جديدة من الموقع</h3>
+                    <p><strong>الاسم:</strong> ${safeName}</p>
+                    <p><strong>البريد:</strong> ${safeEmail}</p>
                     <hr />
-                    <p><strong>تفاصيل رسالتك:</strong></p>
-                    <p>${message}</p>
+                    <p><strong>الرسالة:</strong></p>
+                    <p>${safeMessage}</p>
                 </div>
             `,
         };
@@ -41,7 +97,7 @@ export async function POST(request: Request) {
 
         return NextResponse.json({ success: true });
     } catch (error) {
-        console.error('Email sending failed:', error);
-        return NextResponse.json({ error: 'Failed to send email', details: error instanceof Error ? error.message : String(error) }, { status: 500 });
+        console.error('Email sending failed');
+        return NextResponse.json({ error: 'Failed to send email' }, { status: 500 });
     }
 }
