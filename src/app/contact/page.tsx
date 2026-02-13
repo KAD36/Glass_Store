@@ -21,13 +21,9 @@ export default function ContactPage() {
                         <div className={styles.contactItem}>
                             <h3><Phone size={20} /> الهاتف</h3>
                             <div dir="ltr" className="flex flex-col gap-6 items-center w-full mt-2">
-                                <a href="tel:+966505771354" className="flex items-center justify-center gap-3 w-full py-3 px-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold hover:bg-white/10 transition-all duration-300 group">
+                                <a href="tel:+9665074391597" className="flex items-center justify-center gap-3 w-full py-3 px-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold hover:bg-white/10 transition-all duration-300 group">
                                     <Phone size={20} className="text-gold group-hover:scale-110 transition-transform" />
-                                    <span className="text-xl font-semibold tracking-wide text-white group-hover:text-gold transition-colors">+966 50 577 1354</span>
-                                </a>
-                                <a href="tel:+966534971867" className="flex items-center justify-center gap-3 w-full py-3 px-4 rounded-xl bg-white/5 border border-white/10 hover:border-gold hover:bg-white/10 transition-all duration-300 group">
-                                    <Phone size={20} className="text-gold group-hover:scale-110 transition-transform" />
-                                    <span className="text-xl font-semibold tracking-wide text-white group-hover:text-gold transition-colors">+966 53 497 1867</span>
+                                    <span className="text-xl font-semibold tracking-wide text-white group-hover:text-gold transition-colors">+966 507 439 1597</span>
                                 </a>
                             </div>
                         </div>

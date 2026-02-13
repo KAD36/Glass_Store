@@ -29,13 +29,9 @@ export default function Footer() {
                         <h4>تواصل معنا</h4>
                         <div className={styles.contactInfo}>
                             <div className="flex flex-col gap-4">
-                                <a href="tel:+966505771354" dir="ltr" className="flex items-center gap-3 hover:text-yellow-500 transition-colors group">
+                                <a href="tel:+9665074391597" dir="ltr" className="flex items-center gap-3 hover:text-yellow-500 transition-colors group">
                                     <Phone size={18} className="text-yellow-500 group-hover:scale-110 transition-transform" />
-                                    <span>+966 50 577 1354</span>
-                                </a>
-                                <a href="tel:+966534971867" dir="ltr" className="flex items-center gap-3 hover:text-yellow-500 transition-colors group">
-                                    <Phone size={18} className="text-yellow-500 group-hover:scale-110 transition-transform" />
-                                    <span>+966 53 497 1867</span>
+                                    <span>+966 507 439 1597</span>
                                 </a>
                             </div>
 
