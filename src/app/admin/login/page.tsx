@@ -33,7 +33,7 @@ export default function LoginPage() {
 
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form onSubmit={handleSubmit} className={styles.form} autoComplete="off">
                 <h1 className={styles.title}>Admin Login</h1>
                 {error && <p className={styles.error}>{error}</p>}
                 <div className={styles.inputGroup}>
@@ -43,6 +43,7 @@ export default function LoginPage() {
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
                         className={styles.input}
+                        autoComplete="off"
                     />
                 </div>
                 <div className={styles.inputGroup}>
@@ -52,6 +53,7 @@ export default function LoginPage() {
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                         className={styles.input}
+                        autoComplete="new-password"
                     />
                 </div>
                 <button type="submit" className={styles.button}>Login</button>

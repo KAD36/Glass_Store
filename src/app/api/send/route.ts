@@ -1,16 +1,24 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-// Simple in-memory rate limiter
+// Simple in-memory rate limiter with cleanup (V-010 fix)
 const rateLimitMap = new Map<string, { count: number; resetTime: number }>();
 const RATE_LIMIT = 3; // max requests
 const RATE_WINDOW = 60 * 60 * 1000; // per hour
+const MAX_MAP_SIZE = 10000; // prevent unbounded growth
 
 function isRateLimited(ip: string): boolean {
     const now = Date.now();
     const entry = rateLimitMap.get(ip);
 
     if (!entry || now > entry.resetTime) {
+        // V-010: Prevent memory leak by capping map size
+        if (rateLimitMap.size > MAX_MAP_SIZE) {
+            // Purge all expired entries
+            for (const [key, val] of rateLimitMap.entries()) {
+                if (now > val.resetTime) rateLimitMap.delete(key);
+            }
+        }
         rateLimitMap.set(ip, { count: 1, resetTime: now + RATE_WINDOW });
         return false;
     }
@@ -43,6 +51,10 @@ export async function POST(request: Request) {
         // Input validation
         if (!name || !email || !message) {
             return NextResponse.json({ error: 'All fields are required' }, { status: 400 });
+        }
+
+        if (typeof name !== 'string' || typeof email !== 'string' || typeof message !== 'string') {
+            return NextResponse.json({ error: 'Invalid input types' }, { status: 400 });
         }
 
         // Basic email format validation

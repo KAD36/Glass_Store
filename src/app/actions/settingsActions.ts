@@ -18,7 +18,7 @@ async function requireAuth() {
 
 // Helper to get or create a singleton document
 async function getOrCreateSingleton(type: string) {
-    const doc = await client.fetch(`*[_type == "${type}"][0]`);
+    const doc = await client.fetch(`*[_type == $type][0]`, { type });
     if (doc) return doc;
 
     // If not found, create it
@@ -47,14 +47,14 @@ export async function updateAboutPage(formData: FormData) {
         try {
             team = JSON.parse(teamJson);
         } catch (e) {
-            console.error('Failed to parse team JSON', e);
+            console.error('Failed to parse team JSON');
         }
     }
 
     try {
         // We need to find the 'about' document or create it if it doesn't exist
         // Since it's a singleton-like, we query for it.
-        const existing = await client.fetch(`*[_type == "about"][0]`);
+        const existing = await client.fetch(`*[_type == $type][0]`, { type: 'about' });
 
         const doc: any = {
             _type: 'about',
@@ -73,7 +73,7 @@ export async function updateAboutPage(formData: FormData) {
         revalidatePath('/about');
         revalidatePath('/admin/about');
     } catch (error) {
-        console.error('Failed to update about page:', error);
+        console.error('Failed to update about page');
         throw new Error('Failed to update about page');
     }
 }
@@ -85,7 +85,7 @@ export async function updateContactInfo(formData: FormData) {
     const address = formData.get('address') as string;
 
     try {
-        const existing = await client.fetch(`*[_type == "contact"][0]`);
+        const existing = await client.fetch(`*[_type == $type][0]`, { type: 'contact' });
 
         const doc: any = {
             _type: 'contact',
@@ -104,16 +104,16 @@ export async function updateContactInfo(formData: FormData) {
         revalidatePath('/admin/contact');
         revalidatePath('/'); // Footer might use it
     } catch (error) {
-        console.error('Failed to update contact info:', error);
+        console.error('Failed to update contact info');
         throw new Error('Failed to update contact info');
     }
 }
 
 export async function getContactInfo() {
     try {
-        return await client.fetch(`*[_type == "contact"][0]`);
+        return await client.fetch(`*[_type == $type][0]`, { type: 'contact' });
     } catch (error) {
-        console.error('Failed to fetch contact info:', error);
+        console.error('Failed to fetch contact info');
         return null;
     }
 }

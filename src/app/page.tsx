@@ -5,14 +5,8 @@ import ProjectCard from '@/components/ProjectCard';
 import { ArrowRight, ShieldCheck, PenTool, Clock, Award } from 'lucide-react';
 import styles from './page.module.css';
 
-// Placeholder for the generated hero image - I will use the one I generated
-// Note: In a real scenario, I would move the generated image to public/images
-// For now, I'll assume I can reference it or use a placeholder if not moved.
-// I will use a high quality Unsplash ID as a fallback if the local file isn't moved, 
-// but since I generated it, I should use it. 
-// However, I cannot easily move files with `write_to_file` from artifacts to public without reading/writing.
-// I will use a reliable Unsplash URL for "Luxury Glass Interior" to ensure it works out of the box for the user.
-const HERO_IMAGE = "https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop";
+// Hero image served locally — no external CDN dependency
+const HERO_IMAGE = "/images/hero.jpg";
 
 async function getProjects() {
     return await client.fetch(`

@@ -17,14 +17,26 @@ export async function POST(request: Request) {
         const body = await request.json();
         const { title, description, imageAssetIds } = body;
 
+        // V-004: Input validation
+        if (!title || typeof title !== 'string' || title.length > 200) {
+            return NextResponse.json({ error: 'Invalid title' }, { status: 400 });
+        }
+        if (!description || typeof description !== 'string' || description.length > 5000) {
+            return NextResponse.json({ error: 'Invalid description' }, { status: 400 });
+        }
+        if (!Array.isArray(imageAssetIds) || imageAssetIds.length > 20 ||
+            imageAssetIds.some((id: any) => typeof id !== 'string' || !/^[a-zA-Z0-9_-]+$/.test(id))) {
+            return NextResponse.json({ error: 'Invalid image IDs' }, { status: 400 });
+        }
+
         const doc = {
             _type: 'project',
-            title,
+            title: title.trim(),
             slug: {
                 _type: 'slug',
-                current: title.toLowerCase().replace(/\s+/g, '-').slice(0, 96),
+                current: title.trim().toLowerCase().replace(/\s+/g, '-').replace(/[^a-z0-9-]/g, '').slice(0, 96),
             },
-            description,
+            description: description.trim(),
             images: imageAssetIds.map((id: string) => ({
                 _type: 'image',
                 asset: {
