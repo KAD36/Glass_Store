@@ -38,13 +38,13 @@ export default function Footer() {
                         <h4>تواصل معنا</h4>
                         <div className={styles.contactInfo}>
                             <div className="flex flex-col gap-4">
-                                <a href="tel:+966574391597" dir="ltr" className={styles.contactLink}>
+                                <a href="tel:+966574391597" className={styles.contactLink}>
                                     <Phone size={18} className="text-gold" />
-                                    <span>+966 57 439 1597</span>
+                                    <span dir="ltr">+966 57 439 1597</span>
                                 </a>
-                                <a href="https://wa.me/966534971867" dir="ltr" className={styles.contactLink}>
+                                <a href="https://wa.me/966534971867" className={styles.contactLink}>
                                     <span className="text-gold font-bold">WA</span>
-                                    <span>+966 53 497 1867</span>
+                                    <span dir="ltr">+966 53 497 1867</span>
                                 </a>
                             </div>
 
@@ -70,11 +70,11 @@ export default function Footer() {
                 </div>
 
                 <div className={styles.bottom}>
-                    <div className="flex justify-center items-center">
+                    <div className="flex justify-center items-center mt-6">
                         <p className={styles.developerSignature}>
-                            تصميم وتطوير
+                            تصميم وتطوير: 
                             <a href="https://wa.me/967773768606" target="_blank" rel="noopener noreferrer" className={styles.developerName}>
-                                يوسف الصبري
+                                المهندس يوسف الصبري (اضغط هنا لمراسلتي)
                             </a>
                         </p>
                     </div>

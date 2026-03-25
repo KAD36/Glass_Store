@@ -5,8 +5,8 @@ import ProjectCard from '@/components/ProjectCard';
 import { ArrowRight, ShieldCheck, PenTool, Clock, Award } from 'lucide-react';
 import styles from './page.module.css';
 
-// Hero image served locally — no external CDN dependency
-const HERO_IMAGE = "/images/hero.jpg";
+// Hero image representing modern luxury glass architecture
+const HERO_IMAGE = "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop";
 
 async function getProjects() {
     return await client.fetch(`
@@ -52,9 +52,12 @@ export default async function Home() {
                         <Link href="/portfolio" className={styles.primaryBtn}>
                             شاهد أعمالنا
                         </Link>
-                        <a href="tel:+966574391597" className={styles.secondaryBtn}>
-                            اتصل الآن
-                        </a>
+                        <Link href="/#services" className={styles.secondaryBtn}>
+                            تصفح خدماتنا
+                        </Link>
+                        <Link href="/contact" className={styles.secondaryBtn}>
+                            تواصل معنا مباشرة
+                        </Link>
                     </div>
                 </div>
             </section>
