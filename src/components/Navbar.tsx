@@ -27,27 +27,30 @@ export default function Navbar() {
 
                 <div className={styles.desktopMenu}>
                     <Link href="/" className={styles.link}>الرئيسية</Link>
+                    <Link href="/#services" className={styles.link}>الخدمات</Link>
                     <Link href="/about" className={styles.link}>من نحن</Link>
-                    <Link href="/portfolio" className={styles.link}>أعمالنا</Link>
                     <Link href="/contact" className={styles.link}>تواصل معنا</Link>
+                    <a href="tel:+966574391597" className={styles.callButton}>
+                        اتصل بنا
+                    </a>
                 </div>
-
-
-
                 <button
                     className={styles.mobileToggle}
                     onClick={() => setIsOpen(!isOpen)}
                     aria-label="Toggle menu"
                 >
-                    {isOpen ? <X /> : <Menu />}
+                    {isOpen ? <X size={32} /> : <Menu size={32} />}
                 </button>
 
                 {isOpen && (
                     <div className={styles.mobileMenu}>
                         <Link href="/" className={styles.mobileLink} onClick={() => setIsOpen(false)}>الرئيسية</Link>
+                        <Link href="/#services" className={styles.mobileLink} onClick={() => setIsOpen(false)}>الخدمات</Link>
                         <Link href="/about" className={styles.mobileLink} onClick={() => setIsOpen(false)}>من نحن</Link>
-                        <Link href="/portfolio" className={styles.mobileLink} onClick={() => setIsOpen(false)}>أعمالنا</Link>
                         <Link href="/contact" className={styles.mobileLink} onClick={() => setIsOpen(false)}>تواصل معنا</Link>
+                        <a href="tel:+966574391597" className={styles.mobileCallButton}>
+                            اتصل بنا
+                        </a>
                     </div>
                 )}
             </div>

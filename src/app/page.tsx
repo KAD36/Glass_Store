@@ -52,37 +52,15 @@ export default async function Home() {
                         <Link href="/portfolio" className={styles.primaryBtn}>
                             شاهد أعمالنا
                         </Link>
-                        <Link href="/contact" className={styles.secondaryBtn}>
-                            اطلب استشارة مجانية
-                        </Link>
-                    </div>
-                </div>
-            </section>
-
-            {/* Stats Section */}
-            <section className={styles.stats}>
-                <div className="container mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-                    <div className={styles.statItem}>
-                        <div className={styles.statNumber}>+15</div>
-                        <div className={styles.statLabel}>سنة خبرة</div>
-                    </div>
-                    <div className={styles.statItem}>
-                        <div className={styles.statNumber}>+500</div>
-                        <div className={styles.statLabel}>مشروع مكتمل</div>
-                    </div>
-                    <div className={styles.statItem}>
-                        <div className={styles.statNumber}>100%</div>
-                        <div className={styles.statLabel}>ضمان الجودة</div>
-                    </div>
-                    <div className={styles.statItem}>
-                        <div className={styles.statNumber}>24/7</div>
-                        <div className={styles.statLabel}>دعم فني</div>
+                        <a href="tel:+966574391597" className={styles.secondaryBtn}>
+                            اتصل الآن
+                        </a>
                     </div>
                 </div>
             </section>
 
             {/* Services Section */}
-            <section className={styles.services}>
+            <section id="services" className={styles.services}>
                 <div className="container mx-auto px-4">
                     <h2 className={styles.sectionTitle}>خدماتنا المتميزة</h2>
                     <p className={styles.sectionDesc}>

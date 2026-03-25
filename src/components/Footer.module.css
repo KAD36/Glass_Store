@@ -1,42 +1,52 @@
 .footer {
     background: var(--bg-darker);
-    padding: var(--space-16) 0 var(--space-8);
     border-top: 1px solid var(--glass-border);
-    margin-top: auto;
+    padding: 60px 0 30px; /* >= 40px */
+    width: 100%;
 }
 
 .container {
     width: 100%;
     max-width: var(--container-width);
     margin: 0 auto;
-    padding: 0 var(--space-6);
+    padding: 0 var(--space-6); /* >= 24px inner */
 }
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: var(--space-12);
-    margin-bottom: var(--space-12);
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: var(--space-8);
+    margin-bottom: 60px;
 }
 
 .brand h3 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     color: var(--text-white);
     margin-bottom: var(--space-4);
-    font-weight: 800;
 }
 
 .brand p {
     color: var(--text-gray);
     line-height: 1.8;
-    max-width: 350px;
+    max-width: 90%;
 }
 
 .section h4 {
-    color: var(--accent-gold);
+    font-size: 1.2rem;
+    color: var(--text-white);
     margin-bottom: var(--space-6);
-    font-size: 1.25rem;
-    font-weight: 700;
+    position: relative;
+    padding-bottom: var(--space-2);
+}
+
+.section h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 2px;
+    background: var(--accent-gold);
 }
 
 .links {
@@ -47,15 +57,13 @@
 
 .links a {
     color: var(--text-gray);
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
+    transition: color 0.3s ease;
+    display: inline-block;
 }
 
 .links a:hover {
     color: var(--accent-gold);
-    transform: translateX(-5px);
+    transform: translateX(-4px);
 }
 
 .contactInfo {
@@ -64,17 +72,88 @@
     gap: var(--space-4);
 }
 
-.contactInfo p {
-    color: var(--text-gray);
+.contactLink {
     display: flex;
     align-items: center;
     gap: var(--space-3);
-    margin: 0;
+    color: var(--text-gray);
+    transition: color 0.3s ease;
+}
+
+.contactLink:hover {
+    color: var(--accent-gold);
+}
+
+.socialLinks {
+    display: flex;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--glass-border);
+}
+
+.socialIcon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+.socialIcon:hover {
+    background: var(--accent-gold);
+    color: #000;
+    transform: translateY(-2px);
 }
 
 .bottom {
     border-top: 1px solid var(--glass-border);
-    padding-top: var(--space-8);
-    color: var(--text-muted);
-    font-size: 0.9rem;
+    padding-top: var(--space-6);
+    text-align: center;
+}
+
+.developerSignature {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+.developerName {
+    color: var(--accent-gold);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+}
+
+.developerName:hover {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+@media (max-width: 1024px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 640px) {
+    .grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+    
+    .footer {
+        padding: 40px 0 20px;
+    }
 }

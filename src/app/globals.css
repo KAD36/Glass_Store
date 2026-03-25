@@ -145,12 +145,10 @@ a {
 
 /* Component Utilities */
 .glass-panel {
-    background: var(--glass-bg);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.03);
     border-radius: var(--radius-md);
+    padding: var(--space-8); /* 32px minimum padding */
 }
 
 .text-gradient {

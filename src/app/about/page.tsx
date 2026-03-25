@@ -39,41 +39,16 @@ export default function AboutPage() {
                 </div>
             </section>
 
-            {/* Team Section - UPDATED */}
+            {/* Team Section */}
             <section className="py-20 bg-slate-900/50">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-bold mb-4 text-gold">فريقنا القيادي</h2>
-                    <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-                        يقود "مؤسسة سطور الماسة" نخبة من الكفاءات الهندسية لضمان أعلى مستويات الاحترافية.
-                    </p>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                        <div className={styles.teamCard}>
-                            <div className={styles.avatar}>
-                                <Users size={40} />
-                            </div>
-                            <h3 className={styles.memberName}>المهندس أحمد حمود الخليدي</h3>
-                            <p className={styles.memberRole}>مدير المشاريع</p>
-                            <p className={styles.memberDesc}>
-                                إشراف هندسي دقيق على كافة مراحل المشروع لضمان التسليم في الوقت المحدد وبأعلى معايير الجودة.
-                            </p>
-                        </div>
-
-                        <div className={styles.teamCard}>
-                            <div className={styles.avatar}>
-                                <Target size={40} />
-                            </div>
-                            <h3 className={styles.memberName}>المهندس محمد حمود الخليدي</h3>
-                            <p className={styles.memberRole}>مدير التطوير والتنفيذ</p>
-                            <p className={styles.memberDesc}>
-                                قيادة فرق التنفيذ الفنية وتطوير أساليب العمل لمواكبة أحدث التقنيات العالمية في مجال الزجاج.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div className="mt-12 max-w-3xl mx-auto glass-panel p-8 rounded-2xl">
-                        <p className="text-gray-300 leading-relaxed">
-                            يشرف المهندسان على فريق فني محترف لتنفيذ أعمال الزجاج السكريت، الواجهات، الدرابزين، والشورّات بأعلى معايير الجودة والالتزام بالمواعيد. نحن لا نقدم مجرد خدمة، بل نقدم التزاماً هندسياً بالتميز.
+                    <h2 className="text-3xl font-bold mb-8 text-gold">فريق العمل</h2>
+                    <div className="max-w-3xl mx-auto glass-panel p-8 rounded-2xl">
+                        <p className="text-gray-300 leading-relaxed text-lg mb-4">
+                            يتميز فريق عملنا في مؤسسة سطور الماسة بخبرة هندسية وفنية متينة في مجال المقاولات وأعمال الزجاج السكريت والمرايا، حيث نلتزم بأعلى معايير الجودة في التنفيذ والتصميم لتلبية تطلعات عملائنا.
+                        </p>
+                        <p className="text-gray-300 leading-relaxed text-lg">
+                            نحن نفخر بتسليم مشاريعنا في الوقت المحدد وبدقة متناهية مع الاهتمام بأدق التفاصيل. يعمل فريقنا بأعلى مستويات الاحترافية لنضمن مخرجات تتجاوز التوقعات، فنحن لا نُقدم مجرد خدمة، بل نُقدم التزاماً هندسياً بالتميز المستدام.
                         </p>
                     </div>
                 </div>

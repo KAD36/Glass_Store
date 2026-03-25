@@ -140,3 +140,31 @@
         display: block;
     }
 }
+
+.callButton {
+    padding: var(--space-2) var(--space-6);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+    color: #000;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    font-size: 1rem;
+    margin-right: var(--space-4);
+}
+
+.callButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.mobileCallButton {
+    margin-top: var(--space-4);
+    padding: var(--space-3) var(--space-8);
+    background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+    color: #000;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-size: 1.25rem;
+}
