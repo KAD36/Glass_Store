@@ -101,6 +101,7 @@
 .services {
     padding: var(--space-20) 0;
     position: relative;
+    border-bottom: 1px solid var(--glass-border);
 }
 
 .sectionTitle {

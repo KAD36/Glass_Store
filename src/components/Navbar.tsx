@@ -27,6 +27,7 @@ export default function Navbar() {
 
                 <div className={styles.desktopMenu}>
                     <Link href="/" className={styles.link}>الرئيسية</Link>
+                    <Link href="/portfolio" className={styles.link}>أعمالنا</Link>
                     <Link href="/#services" className={styles.link}>الخدمات</Link>
                     <Link href="/about" className={styles.link}>من نحن</Link>
                     <Link href="/contact" className={styles.link}>تواصل معنا</Link>
