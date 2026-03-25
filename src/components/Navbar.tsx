@@ -18,7 +18,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className={`${styles.navbar} ${styles.scrolled}`}>
+        <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
                 <Link href="/" className={styles.logo}>
                     <Gem className="w-8 h-8 text-yellow-500" />

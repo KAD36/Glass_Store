@@ -74,7 +74,7 @@ export default function Footer() {
                         <p className={styles.developerSignature}>
                             تصميم وتطوير: 
                             <a href="https://wa.me/967773768606" target="_blank" rel="noopener noreferrer" className={styles.developerName}>
-                                المهندس يوسف الصبري (اضغط هنا لمراسلتي)
+                                المهندس يوسف الصبري
                             </a>
                         </p>
                     </div>
