@@ -20,10 +20,15 @@ export default function Navbar() {
     return (
         <nav className={`${styles.navbar} ${styles.scrolled}`}>
             <div className={styles.container}>
-                <Link href="/" className={styles.logo}>
-                    <Gem className="w-8 h-8 text-yellow-500" />
-                    <span>مؤسسه سطور الماسه <span className={styles.logoSpan}>للمقاولات العامة</span></span>
-                </Link>
+                <div className={styles.mobileTopRow}>
+                    <Link href="/" className={styles.logo}>
+                        <Gem className="w-8 h-8 text-yellow-500" />
+                        <span>مؤسسه سطور الماسه <span className={styles.logoSpan}>للمقاولات العامة</span></span>
+                    </Link>
+                    <a href="tel:+966574391597" className={styles.mobileCallButtonInline}>
+                        اتصل بنا
+                    </a>
+                </div>
 
                 <div className={styles.desktopMenu}>
                     <Link href="/" className={styles.link}>الرئيسية</Link>

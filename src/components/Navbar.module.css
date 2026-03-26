@@ -42,6 +42,17 @@
     color: var(--accent-gold);
 }
 
+.mobileTopRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+}
+
+.mobileCallButtonInline {
+    display: none;
+}
+
 .desktopMenu {
     display: flex;
     gap: var(--space-8);
@@ -140,6 +151,10 @@
         align-items: center;
     }
 
+    .mobileTopRow {
+        width: 100%;
+    }
+
     .navbar {
         height: auto;
     }
@@ -170,11 +185,25 @@
         font-size: 0.95rem;
     }
 
+    .logo {
+        font-size: 1.15rem;
+    }
+
+    .mobileCallButtonInline {
+        display: inline-flex;
+        padding: var(--space-1) var(--space-4);
+        background: linear-gradient(135deg, var(--accent-gold) 0%, var(--accent-gold-dark) 100%);
+        color: #000;
+        font-weight: 700;
+        border-radius: var(--radius-sm);
+        text-decoration: none;
+        font-size: 0.85rem;
+        white-space: nowrap;
+        margin-right: 10px;
+    }
+
     .callButton {
-        padding: var(--space-1) var(--space-3);
-        font-size: 0.9rem;
-        flex-shrink: 0;
-        margin-right: 0;
+        display: none;
     }
 
     .mobileToggle {
